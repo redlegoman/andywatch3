@@ -4,10 +4,21 @@
         ""
     ],
     "companyName": "redlegoman",
-    "longName": "ANDYWATCH3",
+    "longName": "REDLEGOMANWATCH1",
     "projectType": "native",
     "resources": {
         "media": [
+            {
+                "file": "images/menuimage1.png",
+                "menuIcon": true,
+                "name": "IMAGE_MENU_2",
+                "type": "png"
+            },
+            {
+                "file": "images/screenshot.png",
+                "name": "IMAGE_SCREENSHOT_1",
+                "type": "png"
+            },
             {
                 "characterRegex": "[0-9:]",
                 "file": "fonts/EmporiumNF.ttf",
@@ -43,7 +54,7 @@
     "shortName": "redlegomanWatch1",
     "uuid": "02f061c2-d846-41ff-ab55-84681d854768",
     "versionCode": 1,
-    "versionLabel": "1.0",
+    "versionLabel": "1.2",
     "watchapp": {
         "watchface": true
     }
