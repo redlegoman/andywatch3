@@ -36,7 +36,7 @@ static void update_time(BatteryChargeState chargeState) {
   if(clock_is_24h_style() == true) {
     //Use 2h hour format
     strftime(buffer, sizeof("00:00"), "%H:%M", tick_time);
-//    strftime(buffer, sizeof("44:44"), "44:44", tick_time);
+    //strftime(buffer, sizeof("44:44"), "00:00", tick_time);
   } else {
     //Use 12 hour format
     strftime(buffer, sizeof("00:00"), "%I:%M", tick_time);
@@ -65,28 +65,27 @@ static void main_window_load(Window *window) {
   s_day_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_SARA_27));
 
   //s_time_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_RENEGADO_39));
-  s_time_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_SARA_50));
+//  s_time_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_SARA_53));
+  s_time_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_TIME_68));
   
 
   
   //day
-  s_day_layer = text_layer_create(GRect(0, 40, 144, 45));
+  s_day_layer = text_layer_create(GRect(0, 15, 144, 45));
   text_layer_set_background_color(s_day_layer, GColorClear);
   text_layer_set_text_color(s_day_layer, GColorWhite);
   text_layer_set_text(s_day_layer, "Thisaday");
-
+  // Create time TextLayer
+  s_time_layer = text_layer_create(GRect(0, 40, 144, 80));
+  text_layer_set_background_color(s_time_layer, GColorClear);
+  text_layer_set_text_color(s_time_layer, GColorWhite);
+  text_layer_set_text(s_time_layer, "00:00");
   //date
-  s_date_layer = text_layer_create(GRect(80, 98, 64, 40));
+  s_date_layer = text_layer_create(GRect(90, 104, 64, 40));
   text_layer_set_background_color(s_date_layer, GColorClear);
   text_layer_set_text_color(s_date_layer, GColorWhite);
   text_layer_set_text(s_date_layer, "00 Mth");
   
-
-  // Create time TextLayer
-  s_time_layer = text_layer_create(GRect(0, 55, 144, 50));
-  text_layer_set_background_color(s_time_layer, GColorClear);
-  text_layer_set_text_color(s_time_layer, GColorWhite);
-  text_layer_set_text(s_time_layer, "00:00");
 
   
 
@@ -103,13 +102,13 @@ static void main_window_load(Window *window) {
   
   s_left_layer = text_layer_create(GRect(0, 153, 52, 20));
   text_layer_set_background_color(s_left_layer, GColorClear);
-  text_layer_set_text_color(s_left_layer, GColorBlack);
+  text_layer_set_text_color(s_left_layer, GColorWhite);
 
   text_layer_set_text(s_left_layer, "00 %");
 
   s_right_layer = text_layer_create(GRect(124, 153, 144, 20));
   text_layer_set_background_color(s_right_layer, GColorClear);
-  text_layer_set_text_color(s_right_layer, GColorBlack);
+  text_layer_set_text_color(s_right_layer, GColorWhite);
 
   text_layer_set_text(s_right_layer, "00 ");
 
@@ -137,8 +136,8 @@ static void main_window_load(Window *window) {
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_time_layer));
 
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_date_layer));
-  layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_leftbar_layer));
-  layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_rightbar_layer));
+//  layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_leftbar_layer));
+//  layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_rightbar_layer));
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_left_layer));
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_right_layer));
   

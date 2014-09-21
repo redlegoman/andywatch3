@@ -3,11 +3,17 @@
     "capabilities": [
         ""
     ],
-    "companyName": "kickstarter.com@mcdade.co.uk",
+    "companyName": "redlegoman",
     "longName": "ANDYWATCH3",
     "projectType": "native",
     "resources": {
         "media": [
+            {
+                "characterRegex": "[0-9:]",
+                "file": "fonts/EmporiumNF.ttf",
+                "name": "FONT_TIME_68",
+                "type": "font"
+            },
             {
                 "characterRegex": "[a-zA-Z0-9:]",
                 "file": "fonts/Sans Sara.ttf",
@@ -17,7 +23,7 @@
             {
                 "characterRegex": "[0-9:]",
                 "file": "fonts/Sans Sara.ttf",
-                "name": "FONT_SARA_50",
+                "name": "FONT_SARA_53",
                 "type": "font"
             },
             {
@@ -34,8 +40,8 @@
             }
         ]
     },
-    "shortName": "ANDYWATCH3",
-    "uuid": "02f061c2-d846-41ff-ab55-84680d854768",
+    "shortName": "redlegomanWatch1",
+    "uuid": "02f061c2-d846-41ff-ab55-84681d854768",
     "versionCode": 1,
     "versionLabel": "1.0",
     "watchapp": {
