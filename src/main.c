@@ -81,7 +81,7 @@ static void main_window_load(Window *window) {
   text_layer_set_text_color(s_time_layer, GColorWhite);
   text_layer_set_text(s_time_layer, "00:00");
   //date
-  s_date_layer = text_layer_create(GRect(90, 104, 64, 40));
+  s_date_layer = text_layer_create(GRect(80, 104, 64, 40));
   text_layer_set_background_color(s_date_layer, GColorClear);
   text_layer_set_text_color(s_date_layer, GColorWhite);
   text_layer_set_text(s_date_layer, "00 Mth");
