@@ -20,7 +20,7 @@ static void update_time(BatteryChargeState chargeState) {
 
   // Create a long-lived buffer
   static char buffer[] = "00:00";
-  static char day[] = "Saturday";
+  static char day[] = "Wednesday";
   static char date[] = "12 Sep";
   static char secs[] = "00";
 
@@ -43,7 +43,7 @@ static void update_time(BatteryChargeState chargeState) {
   }
 
   strftime(day, sizeof("Wednesday"), "%A", tick_time);
-  strftime(date, sizeof("12 Sep"), "%d %b", tick_time);
+  strftime(date, sizeof("12 Sep"), "%e %b", tick_time);
   strftime(secs, sizeof("00"), "%S", tick_time);
   
   // Display this time on the TextLayer
@@ -67,7 +67,7 @@ static void main_window_load(Window *window) {
   //s_time_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_RENEGADO_39));
 //  s_time_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_SARA_53));
   s_time_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_TIME_68));
-  
+//  GFont custom_font = fonts_load_custom_font (resource_get_handle(RESOURCE_ID_FONT_OSP_DIN_44));
 
   
   //day
@@ -80,11 +80,12 @@ static void main_window_load(Window *window) {
   text_layer_set_background_color(s_time_layer, GColorClear);
   text_layer_set_text_color(s_time_layer, GColorWhite);
   text_layer_set_text(s_time_layer, "00:00");
-  //date
-  s_date_layer = text_layer_create(GRect(80, 104, 64, 40));
+  //date       from left, from top, size from left, size from top
+  s_date_layer = text_layer_create(GRect(60, 104, 84, 40));
   text_layer_set_background_color(s_date_layer, GColorClear);
   text_layer_set_text_color(s_date_layer, GColorWhite);
   text_layer_set_text(s_date_layer, "00 Mth");
+   text_layer_set_text_alignment(s_date_layer, GTextAlignmentRight);
   
 
   
