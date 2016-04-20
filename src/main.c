@@ -21,12 +21,12 @@ static void update_time(BatteryChargeState chargeState) {
   // Create a long-lived buffer
   static char buffer[] = "00:00";
   static char day[] = "Wednesday";
-  static char date[] = "12 Sep";
+  static char date[] = "00 MTH";
   static char secs[] = "00";
 
-  static char percent_show[] = " 00 %";
+  static char percent_show[] = "00 %";
   uint8_t percent = chargeState.charge_percent;
-  snprintf(percent_show, 7, "  %i%%", percent);
+  snprintf(percent_show, 5, "%i%%", percent);
   //snprintf(percent_show, sizeof(battery_text), "%d%% charged", chargeState.charge_percent);
 
   //APP_LOG(APP_LOG_LEVEL_DEBUG, "percent: %s", percent_show);
@@ -42,16 +42,22 @@ static void update_time(BatteryChargeState chargeState) {
     strftime(buffer, sizeof("00:00"), "%I:%M", tick_time);
   }
 
-  strftime(day, sizeof("Wednesday"), "%A", tick_time);
-  strftime(date, sizeof("12 Sep"), "%e %b", tick_time);
+  strftime(day, sizeof("Wednesdayx"), "%A", tick_time);
+  strftime(date, sizeof("00 MTH"), "%e %b", tick_time);
   strftime(secs, sizeof("00"), "%S", tick_time);
+  
+  //text_layer_set_text(s_date_layer, "00 MTH");
+   
+  
   
   // Display this time on the TextLayer
   text_layer_set_text(s_time_layer, buffer);
     text_layer_set_text(s_day_layer, day);
     text_layer_set_text(s_date_layer, date);
     text_layer_set_text(s_right_layer, secs);
-  
+    text_layer_set_text_alignment(s_right_layer, GTextAlignmentRight);
+
+  text_layer_set_text_alignment(s_date_layer, GTextAlignmentRight);
   text_layer_set_text(s_left_layer, percent_show);
 
 }
@@ -71,26 +77,27 @@ static void main_window_load(Window *window) {
 
   
   //day
-  s_day_layer = text_layer_create(GRect(0, 15, 144, 45));
+  s_day_layer = text_layer_create(GRect(0, 15, 144, 35));
   text_layer_set_background_color(s_day_layer, GColorClear);
   text_layer_set_text_color(s_day_layer, GColorWhite);
   text_layer_set_text(s_day_layer, "Thisaday");
   // Create time TextLayer
-  s_time_layer = text_layer_create(GRect(0, 40, 144, 80));
+  s_time_layer = text_layer_create(GRect(0, 43, 144, 69));
   text_layer_set_background_color(s_time_layer, GColorClear);
   text_layer_set_text_color(s_time_layer, GColorWhite);
   text_layer_set_text(s_time_layer, "00:00");
   //date       from left, from top, size from left, size from top
-  s_date_layer = text_layer_create(GRect(60, 104, 84, 40));
+  //s_date_layer = text_layer_create(GRect(60, 104, 84, 40));
+  s_date_layer = text_layer_create(GRect(0, 110, 144, 30));
   text_layer_set_background_color(s_date_layer, GColorClear);
   text_layer_set_text_color(s_date_layer, GColorWhite);
-  text_layer_set_text(s_date_layer, "00 Mth");
+  text_layer_set_text(s_date_layer, "00 MTH");
    text_layer_set_text_alignment(s_date_layer, GTextAlignmentRight);
   
 
   
 
-  
+ //------  NOT NEEDED?? -------------------------------------------
   s_leftbar_layer = text_layer_create(GRect(0, 157, 72, 11));
   text_layer_set_background_color(s_leftbar_layer, GColorWhite);
   text_layer_set_text_color(s_leftbar_layer, GColorBlack);
@@ -99,19 +106,35 @@ static void main_window_load(Window *window) {
   s_rightbar_layer = text_layer_create(GRect(72, 157, 144, 11));
   text_layer_set_background_color(s_rightbar_layer, GColorWhite);
   text_layer_set_text_color(s_rightbar_layer, GColorBlack);
-
+//------  NOT NEEDED??----------------------------------------------
   
-  s_left_layer = text_layer_create(GRect(0, 153, 52, 20));
+#ifdef PBL_COLOR
+  window_set_background_color(s_main_window, GColorDukeBlue);
+#else
+  window_set_background_color(s_main_window, GColorBlack);
+#endif
+  
+  //percent       from left, from top, size from left, size from top
+  #ifdef PBL_COLOR
+    s_left_layer = text_layer_create(GRect(0, 143, 52, 20));
+  #else
+    s_left_layer = text_layer_create(GRect(0, 153, 52, 20));
+  #endif
   text_layer_set_background_color(s_left_layer, GColorClear);
   text_layer_set_text_color(s_left_layer, GColorWhite);
 
   text_layer_set_text(s_left_layer, "00 %");
 
-  s_right_layer = text_layer_create(GRect(124, 153, 144, 20));
+  //seconds       from left, from top, size from left, size from top
+  #ifdef PBL_COLOR
+    s_right_layer = text_layer_create(GRect(124, 143, 20, 20)); /// CHECK DIMENSIONS
+  #else
+    s_right_layer = text_layer_create(GRect(124, 153, 20, 20)); /// CHECK DIMENSIONS
+  #endif
   text_layer_set_background_color(s_right_layer, GColorClear);
   text_layer_set_text_color(s_right_layer, GColorWhite);
 
-  text_layer_set_text(s_right_layer, "00 ");
+  text_layer_set_text(s_right_layer, "00");  /// SECONDS
 
   
   // Improve the layout to be more like a watchface

@@ -3,8 +3,9 @@
     "capabilities": [
         ""
     ],
-    "companyName": "redlegoman",
-    "longName": "REDLEGOMANWATCH1",
+    "companyName": "Andy McDade",
+    "enableMultiJS": false,
+    "longName": "RLM Simple Watch 2",
     "projectType": "native",
     "resources": {
         "media": [
@@ -21,40 +22,50 @@
             },
             {
                 "characterRegex": "[0-9:]",
+                "compatibility": "2.7",
                 "file": "fonts/EmporiumNF.ttf",
                 "name": "FONT_TIME_68",
                 "type": "font"
             },
             {
                 "characterRegex": "[0-9:]",
+                "compatibility": "2.7",
                 "file": "fonts/Sans Sara.ttf",
                 "name": "FONT_SARA_53",
                 "type": "font"
             },
             {
                 "characterRegex": "[a-zA-Z0-9:]",
+                "compatibility": "2.7",
                 "file": "fonts/Sans Sara.ttf",
                 "name": "FONT_SARA_27",
                 "type": "font"
             },
             {
                 "characterRegex": "[A-Za-z0-9:.]",
+                "compatibility": "2.7",
                 "file": "fonts/renegadolaser.ttf",
                 "name": "FONT_RENEGADO_14",
                 "type": "font"
             },
             {
                 "characterRegex": "[0-9:.]",
+                "compatibility": "2.7",
                 "file": "fonts/renegadolaser.ttf",
                 "name": "FONT_RENEGADO_39",
                 "type": "font"
             }
         ]
     },
-    "shortName": "redlegomanWatch1",
-    "uuid": "02f061c2-d846-41ff-ab55-84681d854768",
-    "versionCode": 1,
-    "versionLabel": "1.6",
+    "sdkVersion": "3",
+    "shortName": "redlegomanWatch2",
+    "targetPlatforms": [
+        "aplite",
+        "basalt",
+        "chalk"
+    ],
+    "uuid": "ad143b00-a79d-4b9e-ae15-0c579202ab52",
+    "versionLabel": "1.96",
     "watchapp": {
         "watchface": true
     }
