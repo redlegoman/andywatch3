@@ -109,14 +109,15 @@ static void main_window_load(Window *window) {
 //------  NOT NEEDED??----------------------------------------------
   
 #ifdef PBL_COLOR
-  window_set_background_color(s_main_window, GColorDukeBlue);
+  //window_set_background_color(s_main_window, GColorDukeBlue);
+  window_set_background_color(s_main_window, GColorBlack);
 #else
   window_set_background_color(s_main_window, GColorBlack);
 #endif
   
   //percent       from left, from top, size from left, size from top
   #ifdef PBL_COLOR
-    s_left_layer = text_layer_create(GRect(0, 143, 52, 20));
+    s_left_layer = text_layer_create(GRect(0, 149, 52, 20));
   #else
     s_left_layer = text_layer_create(GRect(0, 153, 52, 20));
   #endif
@@ -127,7 +128,7 @@ static void main_window_load(Window *window) {
 
   //seconds       from left, from top, size from left, size from top
   #ifdef PBL_COLOR
-    s_right_layer = text_layer_create(GRect(124, 143, 20, 20)); /// CHECK DIMENSIONS
+    s_right_layer = text_layer_create(GRect(124, 149, 20, 20)); /// CHECK DIMENSIONS
   #else
     s_right_layer = text_layer_create(GRect(124, 153, 20, 20)); /// CHECK DIMENSIONS
   #endif
