@@ -79,7 +79,7 @@ static void main_window_load(Window *window) {
   //day
   s_day_layer = text_layer_create(GRect(0, 15, 144, 35));
   text_layer_set_background_color(s_day_layer, GColorClear);
-  text_layer_set_text_color(s_day_layer, GColorWhite);
+  text_layer_set_text_color(s_day_layer, GColorPictonBlue);
   text_layer_set_text(s_day_layer, "Thisaday");
   // Create time TextLayer
   s_time_layer = text_layer_create(GRect(0, 43, 144, 69));
@@ -90,7 +90,7 @@ static void main_window_load(Window *window) {
   //s_date_layer = text_layer_create(GRect(60, 104, 84, 40));
   s_date_layer = text_layer_create(GRect(0, 110, 144, 30));
   text_layer_set_background_color(s_date_layer, GColorClear);
-  text_layer_set_text_color(s_date_layer, GColorWhite);
+  text_layer_set_text_color(s_date_layer, GColorPictonBlue);
   text_layer_set_text(s_date_layer, "00 MTH");
    text_layer_set_text_alignment(s_date_layer, GTextAlignmentRight);
   
@@ -122,7 +122,7 @@ static void main_window_load(Window *window) {
     s_left_layer = text_layer_create(GRect(0, 153, 52, 20));
   #endif
   text_layer_set_background_color(s_left_layer, GColorClear);
-  text_layer_set_text_color(s_left_layer, GColorWhite);
+  text_layer_set_text_color(s_left_layer, GColorDarkGray);
 
   text_layer_set_text(s_left_layer, "00 %");
 
@@ -133,7 +133,7 @@ static void main_window_load(Window *window) {
     s_right_layer = text_layer_create(GRect(124, 153, 20, 20)); /// CHECK DIMENSIONS
   #endif
   text_layer_set_background_color(s_right_layer, GColorClear);
-  text_layer_set_text_color(s_right_layer, GColorWhite);
+  text_layer_set_text_color(s_right_layer, GColorDarkCandyAppleRed);
 
   text_layer_set_text(s_right_layer, "00");  /// SECONDS
 
